@@ -1,0 +1,1 @@
+{"version":3,"sources":["app.js"],"names":[],"mappings":";;AAAA;;;;AACA;;;;AAEA,QAAA,GAAA,CAAA,GAAA","file":"all.js","sourcesContent":["import React from 'react';\r\nimport { render } from 'react-dom';\r\n\r\nconsole.log('a');\r\n"],"sourceRoot":"/source/"}
