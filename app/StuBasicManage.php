@@ -21,9 +21,9 @@ class StuBasicManage extends Model
     public static function GetListWith($queryCond){
         $query=DB::table('stubasic');
         foreach ($queryCond as $key => $value) {
-            if($key==='and')
+            if($value['type']==='and')
             $query=$query->where($value['target'],$value['op'],$value['opvalue']);
-            else if($key==='or')
+            else if($value['type']==='or')
             $query=$query->orWhere($value['target'],$value['op'],$value['opvalue']);
         }
         return $query->get();

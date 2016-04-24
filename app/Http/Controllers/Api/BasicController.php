@@ -35,15 +35,8 @@ class BasicController extends Controller
                 'detailsString'=>'Permission denied'
             ]);
         }
-        $queryCond=json_decode($request->input('cond'));
-        //$result=StuBasicManage::GetList();
-        $result=StuBasicManage::GetListWith([
-            'and'=>[
-                'target'=>'stuid',
-                'op'=>'<',
-                'opvalue'=>'20'
-            ],
-        ]);
+        $queryCond=json_decode($request->input('cond'),true);
+        $result=StuBasicManage::GetListWith($queryCond);
         return json_encode(
         [
             'status'=>'0',
@@ -72,3 +65,5 @@ class BasicController extends Controller
 
 
 }
+
+//{"and":{"target":"stuid","op":"<","opvalue":"20"},"and":{"target":"stuid","op":">","opvalue":"5"}}
