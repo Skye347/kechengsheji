@@ -24,10 +24,6 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    // protected static $permissionsRequire=[
-    //     'show'=>'PermissionEdit',
-    // ];
-
     public function roles()
     {
         return $this->belongsToMany(Role::class);

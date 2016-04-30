@@ -28,7 +28,7 @@ class BasicController extends Controller
     }
 
     public function GetListWith(Request $request){
-        if(Gate::denies(StuBasicManage::$permissionRequire['GetList'])){
+        if(Gate::denies(StuBasicManage::$permissionRequire['GetListWith'])){
             return json_encode([
                 'status'=>'1',
                 'details'=>'1',
@@ -63,7 +63,22 @@ class BasicController extends Controller
         ]);
     }
 
-
+    public function Add(Request $request){
+        if(Gate::denies(StuBasicManage::$permissionRequire['Add'])){
+            return json_encode([
+                'status'=>'1',
+                'details'=>'1',
+                'detailsString'=>'Permission denied'
+            ]);
+        }
+        $result=StuBasicManage::Add($request->input('stuid'),$request->input('stuname'),$request->input('stugrade'));
+        return json_encode(
+        [
+            'status'=>'0',
+            'count'=>count($result),
+            'data'=>$result
+        ]);
+    }
 }
 
-//{"and":{"target":"stuid","op":"<","opvalue":"20"},"and":{"target":"stuid","op":">","opvalue":"5"}}
+//[{"type":"and","target":"stuid","op":"<","opvalue":"20"},{"type":"or","target":"stugrade","op":">","opvalue":"5"}]
