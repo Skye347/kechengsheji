@@ -46,6 +46,9 @@ Route::group(['prefix'=>'api','middleware'=>'token.check'],function(){
     Route::post('basic/add','Api\BasicController@Add');
     Route::resource('basic','Api\BasicController',
     ['only'=>['add','getlistwith','getlist','edit']]);
+    //
+    Route::get('profile/{stuid}/get','Api\ProfileController@Get');
+    Route::post('profile/{stuid}/edit','Api\ProfileController@Edit');
 });
 
 Route::group(['prefix'=>'home','middleware'=>'auth.custom'],function(){

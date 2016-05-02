@@ -12,24 +12,6 @@ class Permission extends Model
         return $this->belongsToMany(Role::class);
     }
 
-    // public static $permissionRequire=[
-    //     'GetUsers'=>'PermissionEdit',
-    //     'GetPermissions'=>'PermissionEdit',
-    //     'GetRoles'=>'PermissionEdit',
-    //     'GetRolesByuser'=>'PermissionEdit',
-    //     'GetRolesBypermission'=>'PermissionEdit',
-    //     'DelPermissions'=>'PermissionDel',
-    //     'AddPermissions'=>'PermissionAdd',
-    //     'EditPermissions'=>'PermissionEdit',
-    //     'EditRoles'=>'RolesEdit',
-    //     'DelRoles'=>'RolesDel',
-    //     'AddRoles'=>'RolesAdd',
-    //     'AddRolesByuser'=>'RoleUserAdd',
-    //     'DeleteRolesByuser'=>'RoleUserDel',
-    //     'AddPermissionsByrole'=>'PermissionRoleAdd',
-    //     'DeletePermissionsByrole'=>'PermissionRoleDel'
-    // ];
-
     public static $permissionRequire=[
         'GetUsers'=>'PermissionEdit',
         'GetPermissions'=>'PermissionEdit',
@@ -39,13 +21,13 @@ class Permission extends Model
         'DelPermissions'=>'PermissionDel',
         'AddPermissions'=>'PermissionAdd',
         'EditPermissions'=>'PermissionEdit',
-        'EditRoles'=>'PermissionEdit',
-        'DelRoles'=>'PermissionEdit',
-        'AddRoles'=>'PermissionEdit',
-        'AddRolesByuser'=>'PermissionEdit',
-        'DeleteRolesByuser'=>'PermissionEdit',
-        'AddPermissionsByrole'=>'PermissionEdit',
-        'DeletePermissionsByrole'=>'PermissionEdit'
+        'EditRoles'=>'RolesEdit',
+        'DelRoles'=>'RolesDel',
+        'AddRoles'=>'RolesAdd',
+        'AddRolesByuser'=>'RoleUserAdd',
+        'DeleteRolesByuser'=>'RoleUserDel',
+        'AddPermissionsByrole'=>'PermissionRoleAdd',
+        'DeletePermissionsByrole'=>'PermissionRoleDel'
     ];
 
     public static function GetUsers(){

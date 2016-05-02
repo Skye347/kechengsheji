@@ -4,6 +4,7 @@ namespace App;
 
 use DB;
 use Illuminate\Database\Eloquent\Model;
+use Profile;
 
 class StuBasicManage extends Model
 {
@@ -59,6 +60,7 @@ class StuBasicManage extends Model
             ]);
         $data=Self::where('stuId',$stuid)
             ->first();
+        Profile::Add($stuid,$stuname);
         return [
             $data
         ];
