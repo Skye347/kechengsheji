@@ -24,7 +24,12 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
+Route::group(['prefix'=>'api'],function(){
+    Route::post('users/login','Api\UserController@login');
+});
+
 Route::group(['prefix'=>'api','middleware'=>'token.check'],function(){
+    //
     Route::get('permissions/getusers','Api\PermissionController@GetUsers');
     Route::get('permissions/getpermissions','Api\PermissionController@GetPermissions');
     Route::get('permissions/getroles','Api\PermissionController@GetRoles');
